@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div id="particles-js"></div>
+    <header class="flex justify-between items-center bg-white p-4 shadow-md">
+        <img src="logo.png" alt="Company Logo" class="h-12">
+        <button id="menuButton" class="bg-blue-500 text-white px-4 py-2 rounded">☰</button>
+    </header>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform">
+        <button id="closeMenu" class="m-4 text-xl">✖</button>
+        <ul class="p-4 space-y-4">
+            <li><a href="#" class="block p-2 bg-gray-200 rounded">Form 1</a></li>
+            <li><a href="#" class="block p-2 bg-gray-200 rounded">Form 2</a></li>
+            <li><a href="#" class="block p-2 bg-gray-200 rounded">Form 3</a></li>
+        </ul>
+    </div>
+
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-lg mt-4">
+        <h2 class="text-2xl font-bold mb-4">Finance Application</h2>
+        
+        <form id="financeForm" class="space-y-4">
+            <!-- Personal Details -->
+            <h3 class="text-xl font-semibold">Personal Details</h3>
+            <input type="text" name="fullName" placeholder="Full First Names" class="w-full p-2 border rounded" required>
+            <input type="text" name="surname" placeholder="Surname" class="w-full p-2 border rounded" required>
+            <input type="text" name="idNumber" placeholder="ID Number" class="w-full p-2 border rounded" required>
+            <input type="tel" name="cellNumber" placeholder="Cell Phone Number" class="w-full p-2 border rounded" required>
+            <input type="email" name="email" placeholder="Email Address" class="w-full p-2 border rounded" required>
+            <textarea name="homeAddress" placeholder="Home Address" class="w-full p-2 border rounded" required></textarea>
+            
+            <!-- Employer Details -->
+            <h3 class="text-xl font-semibold">Employer Details</h3>
+            <input type="text" name="employer" placeholder="Employer" class="w-full p-2 border rounded" required>
+            <input type="tel" name="workPhone" placeholder="Work Telephone (Landline)" class="w-full p-2 border rounded" required>
+            <input type="text" name="occupation" placeholder="Occupation" class="w-full p-2 border rounded" required>
+            <input type="text" name="employerAddress" placeholder="Employer Address" class="w-full p-2 border rounded" required>
+            
+            <!-- Bank Details -->
+            <h3 class="text-xl font-semibold">Bank Details</h3>
+            <input type="text" name="bankName" placeholder="Bank Name" class="w-full p-2 border rounded" required>
+            <input type="text" name="accountNumber" placeholder="Account Number" class="w-full p-2 border rounded" required>
+            
+            <!-- Monthly Income & Expenses -->
+            <h3 class="text-xl font-semibold">Monthly Income & Expenses</h3>
+            <input type="text" name="grossSalary" placeholder="Gross Salary (Before Tax)" class="w-full p-2 border rounded" required>
+            <input type="text" name="netSalary" placeholder="Net Salary (After Tax)" class="w-full p-2 border rounded" required>
+            <input type="text" name="bondRent" placeholder="Bond Payment or Rent" class="w-full p-2 border rounded" required>
+            
+            <!-- Next of Kin -->
+            <h3 class="text-xl font-semibold">Next of Kin</h3>
+            <input type="text" name="nextOfKinName" placeholder="Name" class="w-full p-2 border rounded" required>
+            <input type="text" name="relationship" placeholder="Relationship (e.g., Father)" class="w-full p-2 border rounded" required>
+            <input type="tel" name="nextOfKinPhone" placeholder="Cell Number" class="w-full p-2 border rounded" required>
+            
+            <!-- Deposit & Trade-in -->
+            <h3 class="text-xl font-semibold">Deposit & Trade-in</h3>
+            <input type="text" name="depositAmount" placeholder="Deposit Amount (e.g., R10 000)" class="w-full p-2 border rounded">
+            <label class="block">
+                <input type="checkbox" name="tradeIn" class="mr-2"> Do you have a Trade-in?
+            </label>
+            
+            <!-- Consent -->
+            <h3 class="text-xl font-semibold">Consent</h3>
+            <label class="block">
+                <input type="checkbox" name="consent" required class="mr-2"> I accept the terms and conditions
+            </label>
+            
+            <!-- Submit and Download Buttons -->
+            <div class="flex justify-between">
+                <button type="submit" class="bg-blue-500 text-white p-3 rounded">Submit Application</button>
+                <button type="button" onclick="downloadForm()" class="bg-green-500 text-white p-3 rounded">Download Form</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="bg-gray-800 text-white text-center p-4 mt-6">
+        &copy; 2025 Company Name. All Rights Reserved.
+    </footer>
+
+    <script>
+        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
+        document.getElementById('financeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form submitted! It will be saved and emailed.');
+        });
+
+        function downloadForm() {
+            alert('Downloading form as a document...');
+        }
+
+        document.getElementById('menuButton').addEventListener('click', function() {
+            document.getElementById('sideMenu').classList.remove('-translate-x-full');
+        });
+
+        document.getElementById('closeMenu').addEventListener('click', function() {
+            document.getElementById('sideMenu').classList.add('-translate-x-full');
+        });
+    </script>
+</body>
+</html>
