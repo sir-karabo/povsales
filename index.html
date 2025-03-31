@@ -1,119 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peters Vehicle Sales - Finance Application Form</title>
+    <title>Peters Vehicle Sales - Finance Application</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+        /* Dark Mode */
+        .dark-mode {
+            background-color: black;
+            color: yellow;
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4">
-    <div id="particles-js"></div>
-    <header class="flex justify-between items-center bg-white shadow-md p-4">
-        <img src="logo.png" alt="Peters Vehicle Sales" class="h-12">
-        <button id="menuButton" class="bg-blue-500 px-4 py-2 rounded text-white">☰</button>
-    </header>
 
-    <!-- Side Menu -->
-    <div id="sideMenu" class="top-0 left-0 fixed bg-white shadow-lg w-64 h-full transition-transform -translate-x-full transform">
-        <button id="closeMenu" class="m-4 text-xl">✖</button>
-        <ul class="space-y-4 p-4">
-            <li><a href="#" class="block bg-gray-200 p-2 rounded">Download PVS Application Forms</a></li>
-            <li><a href="#" class="block bg-gray-200 p-2 rounded">Download PVS Finance Forms</a></li>
-            <li><a href="#" class="block bg-gray-200 p-2 rounded">Email PVS Forms</a></li>
-        </ul>
+<body class="bg-gray-900 p-6 text-yellow-400">
+
+    <!-- Light/Dark Mode Toggle -->
+    <button onclick="toggleDarkMode()" class="bg-yellow-400 mb-4 px-4 py-2 rounded text-black">Toggle Light/Dark
+        Mode</button>
+
+    <!-- Placeholder Image -->
+    <div class="bg-black shadow-lg mx-auto p-6 rounded-lg w-full max-w-3xl">
+        <div class="flex justify-center items-center bg-gray-700 w-full h-48 text-yellow-400">
+            Image Placeholder
+        </div>
+        <hr class="mt-4 border-yellow-400">
     </div>
 
-    <div class="bg-white shadow-lg mx-auto mt-4 p-6 rounded-lg max-w-3xl">
-        <h2 class="mb-4 font-bold text-2xl">Finance Application</h2>
-        
-        <form id="financeForm" class="space-y-4">
+    <!-- Finance Application Form -->
+    <div class="bg-black shadow-lg mx-auto mt-4 p-6 rounded-lg w-full max-w-3xl">
+        <h2 class="mb-4 font-bold text-2xl text-center">Finance Application</h2>
+
+        <form id="financeForm" class="space-y-6">
+
             <!-- Personal Details -->
             <h3 class="font-semibold text-xl">Personal Details</h3>
-            <input type="text" name="fullName" placeholder="Full First Names" class="p-2 border rounded w-full" required>
-            <input type="text" name="surname" placeholder="Surname" class="p-2 border rounded w-full" required>
-            <input type="text" name="idNumber" placeholder="ID Number" class="p-2 border rounded w-full" required>
-            <input type="tel" name="cellNumber" placeholder="Cell Phone Number" class="p-2 border rounded w-full" required>
-            <input type="email" name="email" placeholder="Email Address" class="p-2 border rounded w-full" required>
-            <textarea name="homeAddress" placeholder="Home Address" class="p-2 border rounded w-full" required></textarea>
-            
+
+            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
+                <div>
+                    <label class="block">Full First Names</label>
+                    <input type="text" placeholder="Enter full names"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+                <div>
+                    <label class="block">Surname</label>
+                    <input type="text" placeholder="Enter surname"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+            </div>
+
+            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
+                <div>
+                    <label class="block">ID Number</label>
+                    <input type="text" placeholder="Enter ID number"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+                <div>
+                    <label class="block">Upload ID Document</label>
+                    <input type="file" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+            </div>
+
+            <div>
+                <label class="block">Home Address</label>
+                <textarea placeholder="Enter home address"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400"></textarea>
+            </div>
+
+            <div>
+                <label class="block">Housing</label>
+                <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                    <option value="">Select your housing status</option>
+                    <option value="tenant">Tenant</option>
+                    <option value="owner_bonded">Owner (Bonded)</option>
+                    <option value="bond_free">Bond Free</option>
+                    <option value="parents">Living with Parents</option>
+                </select>
+                <small class="text-gray-400">Please select your current housing situation.</small>
+            </div>
+
             <!-- Employer Details -->
             <h3 class="font-semibold text-xl">Employer Details</h3>
-            <input type="text" name="employer" placeholder="Employer" class="p-2 border rounded w-full" required>
-            <input type="tel" name="workPhone" placeholder="Work Telephone (Landline)" class="p-2 border rounded w-full" required>
-            <input type="text" name="occupation" placeholder="Occupation" class="p-2 border rounded w-full" required>
-            <input type="text" name="employerAddress" placeholder="Employer Address" class="p-2 border rounded w-full" required>
-            
-            <!-- Bank Details -->
-            <h3 class="font-semibold text-xl">Bank Details</h3>
-            <input type="text" name="bankName" placeholder="Bank Name" class="p-2 border rounded w-full" required>
-            <input type="text" name="accountNumber" placeholder="Account Number" class="p-2 border rounded w-full" required>
-            
-            <!-- Monthly Income & Expenses -->
-            <h3 class="font-semibold text-xl">Monthly Income & Expenses</h3>
-            <input type="text" name="grossSalary" placeholder="Gross Salary (Before Tax)" class="p-2 border rounded w-full" required>
-            <input type="text" name="netSalary" placeholder="Net Salary (After Tax)" class="p-2 border rounded w-full" required>
-            <input type="text" name="bondRent" placeholder="Bond Payment or Rent" class="p-2 border rounded w-full" required>
-            
-            <!-- Next of Kin -->
-            <h3 class="font-semibold text-xl">Next of Kin</h3>
-            <input type="text" name="nextOfKinName" placeholder="Name" class="p-2 border rounded w-full" required>
-            <input type="text" name="relationship" placeholder="Relationship (e.g., Father)" class="p-2 border rounded w-full" required>
-            <input type="tel" name="nextOfKinPhone" placeholder="Cell Number" class="p-2 border rounded w-full" required>
-            
-            <!-- Deposit & Trade-in -->
-            <h3 class="font-semibold text-xl">Deposit & Trade-in</h3>
-            <input type="text" name="depositAmount" placeholder="Deposit Amount (e.g., R10 000)" class="p-2 border rounded w-full">
-            <label class="block">
-                <input type="checkbox" name="tradeIn" class="mr-2"> Do you have a Trade-in?
-            </label>
-            
+
+            <div>
+                <label class="block">Employer (Who do you work for?)</label>
+                <input type="text" placeholder="Enter employer name"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+            </div>
+
+            <div>
+                <label class="block">Work Telephone (Landline)</label>
+                <input type="tel" placeholder="Enter work landline number"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+            </div>
+
+            <div>
+                <label class="block">Occupation</label>
+                <input type="text" placeholder="Enter occupation"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+            </div>
+
+            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
+                <div>
+                    <label class="block">Date From</label>
+                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+                <div>
+                    <label class="block">Date To</label>
+                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                </div>
+            </div>
+
             <!-- Consent -->
             <h3 class="font-semibold text-xl">Consent</h3>
-            <label class="block">
-                <input type="checkbox" name="consent" required class="mr-2"> I accept the terms and conditions
-            </label>
-            
-            <!-- Submit and Download Buttons -->
-            <div class="flex justify-between">
-                <button type="submit" class="bg-blue-500 p-3 rounded text-white">Submit Application</button>
-                <button type="button" onclick="downloadForm()" class="bg-green-500 p-3 rounded text-white">Download Form</button>
+            <div>
+                <label class="flex items-center">
+                    <input type="checkbox" required class="mr-2">
+                    I accept the terms and conditions.
+                </label>
             </div>
+
+            <!-- Submit and Download Buttons -->
+            <div class="flex justify-between mt-4">
+                <button type="submit" class="bg-yellow-400 px-6 py-3 rounded text-black">Submit Application</button>
+                <button type="button" onclick="downloadForm()"
+                    class="bg-yellow-400 px-6 py-3 rounded text-black">Download Form</button>
+            </div>
+
         </form>
     </div>
 
-    <footer class="bg-gray-800 mt-6 p-4 text-white text-center">
-        &copy; 2025 Company Name. All Rights Reserved.
+    <footer class="bg-gray-900 mt-6 p-4 text-center">
+        &copy; 2025 Peters Vehicle Sales. All Rights Reserved.
     </footer>
 
     <script>
-        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.json');
-        document.getElementById('financeForm').addEventListener('submit', function(event) {
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        document.getElementById('financeForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            alert('Form submitted! It will be saved and emailed.');
+            alert('Form submitted successfully!');
+
+            // Simulate downloading the form
+            const name = document.querySelector('input[placeholder="Enter full names"]').value || "User";
+            const fileName = `pvsales-${name}.pdf`;
+
+            // Create a dummy link for PDF download
+            const link = document.createElement("a");
+            link.href = "data:application/pdf;base64,JVBERi0xLjQKJ...";
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
 
         function downloadForm() {
             alert('Downloading form as a document...');
         }
-
-        document.getElementById('menuButton').addEventListener('click', function() {
-            document.getElementById('sideMenu').classList.remove('-translate-x-full');
-        });
-
-        document.getElementById('closeMenu').addEventListener('click', function() {
-            document.getElementById('sideMenu').classList.add('-translate-x-full');
-        });
     </script>
+
 </body>
+
 </html>
