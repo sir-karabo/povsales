@@ -7,37 +7,35 @@
     <title>Peters Vehicle Sales - Finance Application</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Dark Mode */
-        .dark-mode {
-            background-color: black;
-            color: yellow;
+        .menu-open {
+            transform: translateX(0);
         }
     </style>
 </head>
 
 <body class="bg-gray-900 p-6 text-yellow-400">
+    <header class="flex justify-between items-center bg-black shadow-md p-4">
+        <img src="logo.png" alt="Peters Vehicle Sales" class="h-12">
+        <button id="menuButton" class="bg-yellow-400 px-4 py-2 rounded text-black">☰</button>
+    </header>
 
-    <!-- Light/Dark Mode Toggle -->
-    <button onclick="toggleDarkMode()" class="bg-yellow-400 mb-4 px-4 py-2 rounded text-black">Toggle Light/Dark
-        Mode</button>
-
-    <!-- Placeholder Image -->
-    <div class="bg-black shadow-lg mx-auto p-6 rounded-lg w-full max-w-3xl">
-        <div class="flex justify-center items-center bg-gray-700 w-full h-48 text-yellow-400">
-            Image Placeholder
-        </div>
-        <hr class="mt-4 border-yellow-400">
+    <!-- Side Menu -->
+    <div id="sideMenu"
+        class="top-0 left-0 fixed bg-black shadow-lg w-64 h-full transition-transform -translate-x-full transform">
+        <button id="closeMenu" class="m-4 text-yellow-400 text-xl">✖</button>
+        <ul class="space-y-4 p-4">
+            <li><a href="#" class="block bg-gray-700 p-2 rounded text-yellow-400">Go To Website</a></li>
+            <li><a href="#" class="block bg-gray-700 p-2 rounded text-yellow-400">Contact Support</a></li>
+        </ul>
     </div>
 
     <!-- Finance Application Form -->
-    <div class="bg-black shadow-lg mx-auto mt-4 p-6 rounded-lg w-full max-w-3xl">
+    <div class="bg-black shadow-lg mx-auto mt-6 p-6 rounded-lg w-full max-w-3xl">
         <h2 class="mb-4 font-bold text-2xl text-center">Finance Application</h2>
 
         <form id="financeForm" class="space-y-6">
-
             <!-- Personal Details -->
             <h3 class="font-semibold text-xl">Personal Details</h3>
-
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
                     <label class="block">Full First Names</label>
@@ -50,7 +48,6 @@
                         class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
             </div>
-
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
                     <label class="block">ID Number</label>
@@ -62,55 +59,23 @@
                     <input type="file" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
             </div>
-
             <div>
                 <label class="block">Home Address</label>
                 <textarea placeholder="Enter home address"
                     class="bg-gray-800 p-2 border rounded w-full text-yellow-400"></textarea>
             </div>
 
-            <div>
-                <label class="block">Housing</label>
-                <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                    <option value="">Select your housing status</option>
-                    <option value="tenant">Tenant</option>
-                    <option value="owner_bonded">Owner (Bonded)</option>
-                    <option value="bond_free">Bond Free</option>
-                    <option value="parents">Living with Parents</option>
-                </select>
-                <small class="text-gray-400">Please select your current housing situation.</small>
-            </div>
-
             <!-- Employer Details -->
             <h3 class="font-semibold text-xl">Employer Details</h3>
-
             <div>
-                <label class="block">Employer (Who do you work for?)</label>
+                <label class="block">Employer</label>
                 <input type="text" placeholder="Enter employer name"
                     class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
             </div>
-
-            <div>
-                <label class="block">Work Telephone (Landline)</label>
-                <input type="tel" placeholder="Enter work landline number"
-                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-            </div>
-
             <div>
                 <label class="block">Occupation</label>
                 <input type="text" placeholder="Enter occupation"
                     class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-            </div>
-
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Date From</label>
-                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Date To</label>
-                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
             </div>
 
             <!-- Consent -->
@@ -128,7 +93,6 @@
                 <button type="button" onclick="downloadForm()"
                     class="bg-yellow-400 px-6 py-3 rounded text-black">Download Form</button>
             </div>
-
         </form>
     </div>
 
@@ -137,32 +101,29 @@
     </footer>
 
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
+        const menuButton = document.getElementById('menuButton');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sideMenu');
+
+        menuButton.addEventListener('click', () => {
+            sideMenu.classList.add('menu-open');
+            sideMenu.classList.remove('-translate-x-full');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            sideMenu.classList.remove('menu-open');
+            sideMenu.classList.add('-translate-x-full');
+        });
 
         document.getElementById('financeForm').addEventListener('submit', function (event) {
             event.preventDefault();
             alert('Form submitted successfully!');
-
-            // Simulate downloading the form
-            const name = document.querySelector('input[placeholder="Enter full names"]').value || "User";
-            const fileName = `pvsales-${name}.pdf`;
-
-            // Create a dummy link for PDF download
-            const link = document.createElement("a");
-            link.href = "data:application/pdf;base64,JVBERi0xLjQKJ...";
-            link.download = fileName;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
         });
 
         function downloadForm() {
             alert('Downloading form as a document...');
         }
     </script>
-
 </body>
 
 </html>
