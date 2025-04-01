@@ -21,7 +21,8 @@
     </header>
 
     <!-- Side Menu -->
-    <div id="sideMenu" class="top-0 left-0 fixed bg-black shadow-lg w-64 h-full text-yellow-400 transition-transform -translate-x-full transform">
+    <div id="sideMenu"
+        class="top-0 left-0 fixed bg-black shadow-lg w-64 h-full text-yellow-400 transition-transform -translate-x-full transform">
         <button id="closeMenu" class="m-4 text-xl">✖</button>
         <ul class="space-y-4 p-4">
             <li><a href="#" class="block bg-gray-700 p-2 rounded">Go To Website</a></li>
@@ -38,7 +39,7 @@
     <!-- Finance Application Form -->
     <div class="bg-black shadow-lg mx-auto mt-4 p-6 rounded-lg w-full max-w-3xl">
         <h2 class="mb-4 font-bold text-2xl text-left">Finance Application</h2>
-        
+
         <p class="mb-6 text-gray-300 text-sm text-left">To be accompanied with the below documents for vehicle finance:
             <br> - 3 Months Bank Statements
             <br> - 3 Months Payslips
@@ -53,34 +54,38 @@
             <h3 class="font-semibold text-xl">Personal Details</h3>
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                    <label class="block">Full First Names</label>
-                    <input type="text" placeholder="Enter full names" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                    <label for="fullNames" class="block">Full First Names</label>
+                    <input id="fullNames" type="text" placeholder="Enter full names"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
                 <div>
-                    <label class="block">Surname</label>
-                    <input type="text" placeholder="Enter surname" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                    <label for="surname" class="block">Surname</label>
+                    <input id="surname" type="text" placeholder="Enter surname"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
             </div>
 
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                    <label class="block">ID Number</label>
-                    <input type="text" placeholder="Enter ID number" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                    <label for="idNumber" class="block">ID Number</label>
+                    <input id="idNumber" type="text" placeholder="Enter ID number"
+                        class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
                 <div>
-                    <label class="block">Upload ID Document</label>
-                    <input type="file" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                    <label for="uploadId" class="block">Upload ID Document</label>
+                    <input id="uploadId" type="file" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                 </div>
             </div>
 
             <div>
-                <label class="block">Home Address</label>
-                <textarea placeholder="Enter home address" class="bg-gray-800 p-2 border rounded w-full text-yellow-400"></textarea>
+                <label for="homeAddress" class="block">Home Address</label>
+                <textarea id="homeAddress" placeholder="Enter home address"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400"></textarea>
             </div>
 
             <div>
-                <label class="block">Housing</label>
-                <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                <label for="housing" class="block">Housing</label>
+                <select id="housing" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
                     <option value="">Select your housing status</option>
                     <option value="tenant">Tenant</option>
                     <option value="owner_bonded">Owner (Bonded)</option>
@@ -93,124 +98,28 @@
             <!-- Employer Details -->
             <h3 class="font-semibold text-xl">Employer Details</h3>
             <div>
-                <label class="block">Employer (Who do you work for?)</label>
-                <input type="text" placeholder="Enter employer name" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                <label for="employer" class="block">Employer (Who do you work for?)</label>
+                <input id="employer" type="text" placeholder="Enter employer name"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
             </div>
 
             <div>
-                <label class="block">Work Telephone (Landline)</label>
-                <input type="tel" placeholder="Enter work landline number" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
+                <label for="workPhone" class="block">Work Telephone (Landline)</label>
+                <input id="workPhone" type="tel" placeholder="Enter work landline number"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
             </div>
 
             <div>
-                <label class="block">Occupation</label>
-                <input type="text" placeholder="Enter occupation" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-            </div>
-
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Date From</label>
-                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Date To</label>
-                    <input type="date" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-            </div>
-
-            <!-- Financial Details -->
-            <h3 class="font-semibold text-xl">Financial Details</h3>
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Gross Monthly Income</label>
-                    <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                        <option value="">Income bracket</option>
-                        <option value="below_15000">Below R15,000</option>
-                        <option value="15000_30000">R15,000 - R30,000</option>
-                        <option value="30000_50000">R30,000 - R50,000</option>
-                        <option value="above_50000">Above R50,000</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block">Net Monthly Income</label>
-                    <input type="text" placeholder="Enter net income (After tax)" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-            </div>
-
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Bank Name</label>
-                    <input type="text" placeholder="Enter bank name" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Branch Name</label>
-                    <input type="text" placeholder="Enter branch name" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-            </div>
-
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Account Number</label>
-                    <input type="text" placeholder="Enter account number" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Account Type</label>
-                    <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                        <option value="">Select account type</option>
-                        <option value="checking">Checking</option>
-                        <option value="savings">Savings</option>
-                        <option value="savings">Business</option>
-                    </select>
-                </div>
-            </div>
-
-            <div>
-                <label class="block">Monthly Expenses</label>
-                <textarea placeholder="List your monthly expenses" class="bg-gray-800 p-2 border rounded w-full text-yellow-400"></textarea>
-            </div>
-
-            <!-- Next of Kin -->
-            <h3 class="font-semibold text-xl">Next of Kin</h3>
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Name</label>
-                    <input type="text" placeholder="Enter next of kin's name" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Address</label>
-                    <input type="text" placeholder="Enter next of kin's address" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-            </div>
-
-            <div>
-                <label class="block">Relationship</label>
-                <input type="text" placeholder="Enter relationship" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-            </div>
-
-            <div>
-                <label class="block">Cell Number</label>
-                <input type="text" placeholder="Enter cell number" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-            </div>
-
-            <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
-                <div>
-                    <label class="block">Deposit Amount</label>
-                    <input type="text" placeholder="Enter deposit amount" class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                </div>
-                <div>
-                    <label class="block">Do you have a Trade-in?</label>
-                    <select class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select>
-                </div>
+                <label for="occupation" class="block">Occupation</label>
+                <input id="occupation" type="text" placeholder="Enter occupation"
+                    class="bg-gray-800 p-2 border rounded w-full text-yellow-400">
             </div>
 
             <!-- Consent -->
             <h3 class="font-semibold text-xl">Consent</h3>
             <div>
                 <label class="flex items-center">
-                    <input type="checkbox" required class="mr-2">
+                    <input id="consent" type="checkbox" required class="mr-2">
                     I accept the terms and conditions.
                 </label>
             </div>
@@ -218,7 +127,8 @@
             <!-- Submit and Download Buttons -->
             <div class="flex justify-between mt-4">
                 <button type="submit" class="bg-yellow-400 px-6 py-3 rounded text-black">Submit Application</button>
-                <button type="button" onclick="downloadForm()" class="bg-yellow-400 px-6 py-3 rounded text-black">Download Form</button>
+                <button type="button" onclick="downloadForm()"
+                    class="bg-yellow-400 px-6 py-3 rounded text-black">Download Form</button>
             </div>
 
         </form>
@@ -242,4 +152,5 @@
         }
     </script>
 </body>
+
 </html>
